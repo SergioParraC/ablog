@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head_content %}
+    <title>{{ post.title }} Post</title>
+{% endblock  %}
+
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    {# Accediendo a los datos de la relacion #}
+    <small>By: {{ post.author.first_name }} {{post.author.last_name }}</small>
+    <a class="badge bg-warning text-dark" href='{% url 'theblog:updatePost'  post.pk %}'>Editar</a>
+    <a class="badge bg-danger text-dark" href='{% url 'theblog:deletePost'  post.pk %}'>Eliminar</a><br/>
+    <hr>
+    {{ post.body }}
+
+    <br/><a href="{% url 'theblog:list' %}" class="btn btn-secondary">Back<a>
+{% endblock  %}
