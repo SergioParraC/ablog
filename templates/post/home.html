@@ -7,8 +7,8 @@
 {% block content %}
     <h1>Posts</h1>
     {% for post in object_list %}
-        <li><a href="{% url 'theblog:articleDetail' post.pk %}">{{ post.title }}</a> - {{ post.author }} 
-        <a class="badge bg-warning text-dark" href='{% url 'theblog:updatePost'  post.pk %}'>Editar</a>   
+        <li><a href="{% url 'theblog:articleDetail' post.pk %}">{{ post.title }}</a> - {{ post.author }} - Creado el {{ post.post_date }}
+        <a class="badge bg-warning text-dark" href='{% url 'theblog:updatePost'  post.pk %}'>Editar</a>
         <a class="badge bg-danger text-dark" href='{% url 'theblog:deletePost'  post.pk %}'>Eliminar</a></br>
         {{ post.body }}  </li>
     {% endfor %}

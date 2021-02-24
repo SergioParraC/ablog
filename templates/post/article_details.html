@@ -8,7 +8,7 @@
 {% block content %}
     <h1>{{ post.title }}</h1>
     {# Accediendo a los datos de la relacion #}
-    <small>By: {{ post.author.first_name }} {{post.author.last_name }}</small>
+    <small>By: {{ post.author.first_name }} {{ post.author.last_name }} - {{ post.post_date }}</small>
     <a class="badge bg-warning text-dark" href='{% url 'theblog:updatePost'  post.pk %}'>Editar</a>
     <a class="badge bg-danger text-dark" href='{% url 'theblog:deletePost'  post.pk %}'>Eliminar</a><br/>
     <hr>

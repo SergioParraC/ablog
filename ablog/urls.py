@@ -19,4 +19,8 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(('theblog.urls','theblog'), namespace='posts')),
+    #Contiene un sistema basico de manejo de sesiones (Login, logouth, crear, modificar perfil)
+    path('user',include('django.contrib.auth.urls')),
+    #Si hay una url adicional va acá a buscarla
+    path('user',include(('user.urls','user'), namespace='user')),
 ]

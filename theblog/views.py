@@ -7,26 +7,27 @@ from django.urls import reverse
 
 class HomeView(ListView):
     model = Post
-    template_name = 'home.html'
+    template_name = 'post/home.html'
+    ordering = ['-post_date']
 
 class ArticleDetailView(DetailView):
     model = Post
-    template_name = 'article_details.html'
+    template_name = 'post/article_details.html'
 
 class AddPostView(CreateView):
-    template_name = 'addpost.html'
+    template_name = 'post/addpost.html'
     form_class = CreateForm
-    
+
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
 
 class UpdatePostView(UpdateView):
     model = Post
-    template_name = 'updatepost.html'
+    template_name = 'post/updatepost.html'
     fields = ['title','title_tag','body']
 
 class DeletePostView(DeleteView):
-    template_name = 'deletepost.html'
+    template_name = 'post/deletepost.html'
     model = Post
     reverse_lazy = 'list'
